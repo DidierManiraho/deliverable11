@@ -4,33 +4,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
    
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
+    <div class="flex justify-center align-center p-16 relative">
+        <div class="flex absolute insert-0">
       <form action="" id="userForm" name="userForm>
         <label for="email">Email</label>
         <input
+        class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
           type="email"
           name="email"
           id="email"
           placeholder="Enter your email address"
         />
-        <i id="email-message"></i>
+        <br/>
+        <i id="email-message" class="text-red-500"></i>
         <br />
         <label for="password">password</label>
         <input
+        class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
           type="password"
           name="password"
           id="password"
           placeholder="Enter your password"
         />
-        <i id="password-message"></i>
+        <br/>
+        <i id="password-message" class="text-red-500"></i>
         <br />
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="w-full border  p-2 bg-purple-500 hover:bg-purple-700 outline-none text-white rounded-none ">Submit</button>
       </form>
+    </div>
     </div>
 
     <script src="val.js"></script>

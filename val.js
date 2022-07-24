@@ -1,11 +1,11 @@
-const userEmail = document.getElementById('email').value;
+const userEmail = document.getElementById('email');
 const password = document.getElementById('password');
 const userForms = document.getElementById('userForm');
 
 const EmailErrMessage= document.getElementById('email-message');
 const PasswordErrMessage= document.getElementById('password-message');
 
-/* VAlue declaration for Password*/
+/* Value declaration for Password*/
 const isEmpty=/^\s+$|^$/gi ;
 const isWhitespace = /^(?=.*\s)/;
 const isContainsUppercase = /^(?=.*[A-Z])/;
@@ -14,6 +14,10 @@ const isContainsNumber = /^(?=.*[0-9])/;
 const isContainsSymbol =
 /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])/;
 const isValidLength = /^.{6}$/;
+
+/* Value declaration for Email*/ 
+const isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
 function checkPasswordValidation(value) {
     if(isEmpty.test(value)){
         return "The Password can not be blank.";
@@ -45,14 +49,22 @@ function checkPasswordValidation(value) {
   return null;
 }
 
-function checkEmailAddress{
-
+function checkEmailAddress(value){
+ //!isValidEmail.test(value) ?  console.log("Valid email address") : console.log("Invalid email address provided.");
+    if(isEmpty.test(value)){
+        return "Email can not be blank.";
+    }
+if(!isValidEmail.test(value)){
+    return "Invalid email address provided.";
+}
+    return null;
     
 }
 
 
 userForms.addEventListener('submit', function (e) {
     e.preventDefault();
+    EmailErrMessage.textContent = checkEmailAddress(userEmail.value);
 
     PasswordErrMessage.textContent= checkPasswordValidation(password.value);
 
